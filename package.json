@@ -1,0 +1,24 @@
+{
+  "name": "RSSFeedBot",
+  "version": "1.0.0",
+  "description": "A bot built to parse, learn & provide RSS feed data. Built using the Microsoft Bot Framework.",
+  "main": "app.js",
+  "dependencies": {
+    "botbuilder": "^3.5.3",
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShawnTjai/RSSFeedBot.git"
+  },
+  "author": "Shawn Tjai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShawnTjai/RSSFeedBot/issues"
+  },
+  "homepage": "https://github.com/ShawnTjai/RSSFeedBot"
+}
