@@ -72,7 +72,7 @@ bot.dialog('/getRSS', function (session, args){
                 var obj = {};
 
                 client.getLanguagesForTranslate(function(err, data){
-                    console.log(data);
+                    //console.log(data);
                 });
 
                 feedparser.parse(url).then(function (items) {
@@ -84,6 +84,7 @@ bot.dialog('/getRSS', function (session, args){
 
                                 if(translateLang){
                                     obj.toLang = translateLang.entity;
+
                                     var paramsLang = {
                                         text: item.description
                                     };
@@ -119,7 +120,7 @@ bot.dialog('/getRSS', function (session, args){
 
                                             var tmp = new builder.HeroCard(session)
                                                 .title(obj.title)
-                                                .subtitle("Translated from "+obj.oriLang+" to Korean")
+                                                .subtitle("Translated from "+obj.oriLang+" to "+obj.toLang)
                                                 .text(obj.description)
                                                 .images([
                                                     builder.CardImage.create(session, item.image.url)
@@ -143,9 +144,29 @@ bot.dialog('/getRSS', function (session, args){
                                 } else {
                                     obj.title = item.title;
                                     obj.description = item.description;
+
+                                    var tmp = new builder.HeroCard(session)
+                                                .title(obj.title)
+                                                .subtitle("Translated from "+obj.oriLang+" to "+obj.toLang)
+                                                .text(obj.description)
+                                                .images([
+                                                    builder.CardImage.create(session, item.image.url)
+                                                ])
+                                                .buttons([
+                                                    builder.CardAction.openUrl(session, item.link, 'Read More')
+                                                ]);
+
+                                            cards[count] = tmp;
                                 }
                             }
                         });
+                        if(!translateLang){
+                            var reply = new builder.Message(session)
+                                        .attachmentLayout(builder.AttachmentLayout.carousel)
+                                        .attachments(cards);
+
+                            session.endDialog(reply);
+                        }
                         console.log(finalMessage);  
                     } catch (err){
                         console.log(err);

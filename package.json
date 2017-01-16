@@ -7,6 +7,7 @@
     "botbuilder": "^3.5.3",
     "feedparser": "^2.0.0",
     "feedparser-promised": "^1.1.1",
+    "langs": "^1.1.0",
     "request": "^2.79.0",
     "request-promise": "^4.1.1",
     "restify": "^4.3.0",
