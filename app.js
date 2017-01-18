@@ -8,7 +8,7 @@ var feedparser = require('feedparser-promised');
 //=========================================================
 
 //Setup LUIS
-var luisRecognizer = new builder.LuisRecognizer('https://api.projectoxford.ai/luis/v2.0/apps/ff6b0484-c17d-4fa8-a749-5ee96b2cf84e?subscription-key=b7dbaddbc50940a7b146c5e6447c30c4&verbose=true');
+var luisRecognizer = new builder.LuisRecognizer('LUIS_ENDPOINT_URL');
 var intentDialog = new builder.IntentDialog({recognizers: [luisRecognizer]});
 
 // Setup Restify Server
