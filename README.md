@@ -2,10 +2,12 @@
 A bot built to parse, learn &amp; provide RSS feed data. Built using the Microsoft Bot Framework.
 
 ##Setting up the bot
+####Configuring up the translator
 Please generate a Translator Key on Microsoft Azure (Cognitive Services APIs -> Translator Text API)
 
 Replace the placeholder **BING_TRANSLATE_KEY** with this key
 
+####Configuration Natural Language Understanding (LUIS)
 You will also need to create a LUIS.ai endpoint
 
 Once you have created the following intents, train the model and then click publish.
