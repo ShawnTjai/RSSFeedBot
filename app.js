@@ -7,7 +7,7 @@ var translator = require('mstranslator');
 
 //Setup Translator
 var client = new translator({
-  api_key: "97509730891a4301b8d176b9fc8ba3e5" // use this for the new token API. 
+  api_key: "BING_TRANSLATE_KEY" // use this for the new token API. 
 }, true);
 
 //Setup LUIS
